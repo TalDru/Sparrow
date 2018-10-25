@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegisterShift">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterShiftResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LastShiftInput">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LastShiftInputResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastShiftInputResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnWorkers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="st" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnWorkersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnWorkersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBillResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBillResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddToBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddToBillResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateBill">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sum" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBillResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterShiftSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterShift" />
+  </wsdl:message>
+  <wsdl:message name="RegisterShiftSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="LastShiftInputSoapIn">
+    <wsdl:part name="parameters" element="tns:LastShiftInput" />
+  </wsdl:message>
+  <wsdl:message name="LastShiftInputSoapOut">
+    <wsdl:part name="parameters" element="tns:LastShiftInputResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnWorkersSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnWorkers" />
+  </wsdl:message>
+  <wsdl:message name="ReturnWorkersSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnWorkersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBillSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBill" />
+  </wsdl:message>
+  <wsdl:message name="GetBillSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddToBillSoapIn">
+    <wsdl:part name="parameters" element="tns:AddToBill" />
+  </wsdl:message>
+  <wsdl:message name="AddToBillSoapOut">
+    <wsdl:part name="parameters" element="tns:AddToBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBill" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBillSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBillResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="RegisterShift">
+      <wsdl:input message="tns:RegisterShiftSoapIn" />
+      <wsdl:output message="tns:RegisterShiftSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LastShiftInput">
+      <wsdl:input message="tns:LastShiftInputSoapIn" />
+      <wsdl:output message="tns:LastShiftInputSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnWorkers">
+      <wsdl:input message="tns:ReturnWorkersSoapIn" />
+      <wsdl:output message="tns:ReturnWorkersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBill">
+      <wsdl:input message="tns:GetBillSoapIn" />
+      <wsdl:output message="tns:GetBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddToBill">
+      <wsdl:input message="tns:AddToBillSoapIn" />
+      <wsdl:output message="tns:AddToBillSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <wsdl:input message="tns:UpdateBillSoapIn" />
+      <wsdl:output message="tns:UpdateBillSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterShift">
+      <soap:operation soapAction="http://tempuri.org/RegisterShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastShiftInput">
+      <soap:operation soapAction="http://tempuri.org/LastShiftInput" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnWorkers">
+      <soap:operation soapAction="http://tempuri.org/ReturnWorkers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBill">
+      <soap:operation soapAction="http://tempuri.org/GetBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToBill">
+      <soap:operation soapAction="http://tempuri.org/AddToBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <soap:operation soapAction="http://tempuri.org/UpdateBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterShift">
+      <soap12:operation soapAction="http://tempuri.org/RegisterShift" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastShiftInput">
+      <soap12:operation soapAction="http://tempuri.org/LastShiftInput" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnWorkers">
+      <soap12:operation soapAction="http://tempuri.org/ReturnWorkers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBill">
+      <soap12:operation soapAction="http://tempuri.org/GetBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToBill">
+      <soap12:operation soapAction="http://tempuri.org/AddToBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <soap12:operation soapAction="http://tempuri.org/UpdateBill" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:50245/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:50245/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

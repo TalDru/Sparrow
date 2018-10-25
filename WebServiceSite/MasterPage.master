@@ -1,0 +1,37 @@
+<%@ Master Language="C#" CodeFile="MasterPage.master.cs" Inherits="MasterPage" EnableViewState="false" %><!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Falcon</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" />
+</head>
+<body>
+    <div class="BackgroundGradient"> </div>
+    <div class="BodyContent">
+
+    <div class="BorderBorder"><div class="BorderBL"><div></div></div><div class="BorderBR"><div></div></div><div class="BorderTL"></div><div class="BorderTR"><div></div></div><div class="BorderT"></div><div class="BorderR"><div></div></div><div class="BorderB"><div></div></div><div class="BorderL"></div><div class="BorderC"></div><div class="Border">
+
+        <div class="Menu">
+             <ul><asp:ContentPlaceHolder id="AddMenu" runat="server" /></ul>
+        </div><div class="Header">
+          <div class="HeaderTitle">
+            <h1 style="font-family:'Pacifico',cursive">Falcon</h1>
+            <h2 style="font-family:'Pacifico',cursive">Human Resources firm</h2>
+          </div>
+        </div>
+        <div class="Columns"><div class="MainColumn">
+        <div class="ArticleBorder"><div class="ArticleBL"><div></div></div><div class="ArticleBR"><div></div></div><div class="ArticleTL"></div><div class="ArticleTR"><div></div></div><div class="ArticleT"></div><div class="ArticleR"><div></div></div><div class="ArticleB"><div></div></div><div class="ArticleL"></div><div class="ArticleC"></div><div class="Article">
+
+            <asp:ContentPlaceHolder id="Content" runat="server" />
+
+        </div></div></div></div>
+        <div class="Footer">
+            <asp:ContentPlaceHolder id="Footer" runat="server" />
+            <a href="Contact.apsx">Contact Us</a>
+        </div>                
+
+    </div></div>
+    </div>
+</body>
+</html>
